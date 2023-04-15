@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio Tarjeta Credito</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <section class="main-container_background-section">
+        <div class="card">
+          <!--Aqui hacemos el codigo de la tarjeta azul para la pantalla principal de Mobile-->
+          <img class="card_logo" src="./images/card-logo.svg" alt="logo" />
+          <p class="card_number">0000 0000 0000 0000</p>
+          <div class="card_details">
+            <p class="card_details-name">Pablo Espinosa</p>
+            <p>
+              <span class="card_month">00</span>/<span class="card_year"
+                >00</span
+              >
+              <!--la etiqueta span la ponemos para poder seleccionar por separado los 00-->
+            </p>
+          </div>
+        </div>
+
+        <div class="card-back">
+          <p class="card-back_cvc">000</p>
+        </div>
+      </section>
+
+      <section class="main-container_form-section">
+        <form class="form" action="">
+          <label class="form_label" for="cardholder">Cardholder Name</label>
+          <input
+            class="form__input"
+            type="text"
+            name="cardholder"
+            id="cardholder"
+            placeholder="e.g. Jane Appleseed"
+            required
+            onkeyup="this.value=Letras(this.value)"
+          />
+          <div class="form__cardholder--error error"></div>
+
+          <label class="form_label" for="cardNumber">Card Number</label>
+          <input
+            class="form__input"
+            id="cardNumber"
+            type="text"
+            name="cardNumber"
+            required
+            maxlength="19"
+            placeholder="1234 5678 9123 0000"
+          />
+          <div class="form__cardnumber--error error"></div>
+
+          <div class="form_date-cvc">
+            <!--GRID-->
+            <!--primer elemento-->
+            <label class="form_label" for="cardMonth">Exp. Date (MM/YY)</label>
+            <!--segundo elemento-->
+            <label class="form_label" for="cardCvc">CVC</label>
+            <!--tercer elemento-->
+            <div class="form_date">
+              <input
+                class="form__input"
+                type="text"
+                maxlength="2"
+                name="cardMonth"
+                id="cardMonth"
+                placeholder="MM"
+                required
+              />
+              <input
+                class="form__input"
+                type="text"
+                maxlength="2"
+                name="cardYear"
+                id="cardYear"
+                placeholder="YY"
+                required
+              />
+            </div>
+            <!--cuarto elemento-->
+            <input
+              class="form__input"
+              type="text"
+              name="cardCvc"
+              id="cardCvc"
+              maxlength="3"
+              placeholder="e.g. 123"
+              required
+            />
+            <!--quinto elemento-->
+            <div class="form__errors-containers">
+              <div class="form__input-mm--error error"></div>
+              <div class="form__input-yy--error error"></div>
+            </div>
+            <!--sexto elemento-->
+            <div class="form__input-cvc--error error"></div>
+          </div>
+
+          <input class="form__submit" type="submit" value="Confirm" />
+        </form>
+      </section>
+
+      <section class="thanks-section disabled" id="thankYou">
+        <img
+          class="thanks-section__img"
+          src="./images/icon-complete.svg"
+          alt="complete icon"
+        />
+        <h1 class="thanks-section__title">THANK YOU!</h1>
+        <p class="thanks-section__text">We have added your card details</p>
+        <button class="thanks-section__button" id="continue">Continue</button>
+      </section>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"
+      integrity="sha512-SvgzybymTn9KvnNGu0HxXiGoNeOi0TTK7viiG0EGn2Qbeu/NFi3JdWrJs2JHiGA1Lph+dxiDv5F9gDlcgBzjfA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
